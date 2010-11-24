@@ -4,17 +4,30 @@
     <title><%= title %></title>
     <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
+    <%= javascript_include_tag :defaults %>
   </head>
   <body>
     <div class="container">
       <%= render 'layouts/header' %>
       <section class="round">
+        <% flash.now[:notice] = "valami amerika" %>
         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
+          <div class="flash <%= key %>" style="display:none;"><%= value %></div>
         <% end %>
         <%= yield %>
       </section>
       <%= render 'layouts/footer' %>
     </div>
+    <% javascript_tag do %>
+      $$('.flash').each( function(e){
+        Effect.Appear(e);
+      });
+      function hide(){
+        $$('.flash').each( function(e){
+          Effect.Fade(e);
+        });
+      }
+      setTimeout(hide, 5000);
+    <% end %>
   </body>
 </html>
