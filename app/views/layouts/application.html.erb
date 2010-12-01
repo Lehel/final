@@ -10,7 +10,6 @@
     <div class="container">
       <%= render 'layouts/header' %>
       <section class="round">
-        <% flash.now[:notice] = "valami amerika" %>
         <% flash.each do |key, value| %>
           <div class="flash <%= key %>" style="display:none;"><%= value %></div>
         <% end %>
@@ -27,7 +26,9 @@
           Effect.Fade(e);
         });
       }
-      setTimeout(hide, 5000);
+      setTimeout(hide, 10000);
     <% end %>
+    <%= debug params %>
+    <%= debug current_user %>
   </body>
 </html>
