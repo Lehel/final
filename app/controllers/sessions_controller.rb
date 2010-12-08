@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to :action => :new, :error => 'Unsuccessful login'
     else
       sign_in user
-      redirect_to user, :notice => 'Successful login'
+      redirect_back_or user
     end
   end
 
