@@ -7,8 +7,8 @@ Railstut::Application.routes.draw do
 
   match '/signin',  :to => 'sessions#new'
   match '/signout',  :to => 'sessions#destroy'
-  
-  
+
+  match '/walltext',:to => 'wall_texts#new'
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
