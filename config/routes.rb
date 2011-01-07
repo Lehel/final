@@ -2,6 +2,7 @@ Railstut::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
 
   resources :users
+  resources :wall_texts
 
   match '/signup',  :to => 'users#new'
 

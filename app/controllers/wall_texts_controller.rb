@@ -5,6 +5,7 @@ class WallTextsController < ApplicationController
   end
   
   def create
+    @walltext = WallText.new(params[:walltext])
   end
 
 end
